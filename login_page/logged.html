@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged In</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Logged in as:</h1>
+        <h2 id="username"></h2>
+        <img id="profile" alt="Profile Picture" src="default-profile.png">
+        <button id="continue-button">Continue</button>
+        <script>
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                document.getElementById('username').textContent = user.displayName || 'No Name';
+                document.getElementById('profile').src = user.photoURL || 'default-profile.png';
+            }
+        document.getElementById('continue-button').addEventListener('click', function() {
+            // Navigate to the index.html inside Game_page/public
+            window.location.href = 'Dashboard/index.html';
+        });
+        </script>
+        
+
+    </div>
+</body>
+</html>

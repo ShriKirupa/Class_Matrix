@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill in the Blanks</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <h1>Fill in the Blanks</h1>
+    <div id="fill-blank-container">
+        <div class="fill-blank-sentence">
+            <div contenteditable="true" class="editable-sentence" placeholder="Enter a sentence here..."></div>
+            <button onclick="createBlank()">Create Blank from Highlighted Text</button>
+            <input type="text" class="correct-answer" placeholder="Correct Answer">
+        </div>
+    </div>
+    <button onclick="addFillBlank()">+ Add Another Sentence</button>
+    <button onclick="finalize('fill-in-the-blanks')">Finalize</button>
+    <button onclick="preview()">Preview</button>
+    <button onclick="window.history.back()">Back</button>
+
+    <script src="scripts/fill.js"></script>
+</body>
+</html>

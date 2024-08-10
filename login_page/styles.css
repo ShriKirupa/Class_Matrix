@@ -1,0 +1,196 @@
+/* Basic Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.container {
+    text-align: center;
+}
+#profile {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+/* Split container styles */
+.split-container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+}
+
+/* Left side styles */
+.left-side {
+    flex: 1; /* Takes up 50% of the width */
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Pushes footer to the bottom */
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Needed for footer positioning */
+}
+
+/* Center the logo and title in the left side */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: auto; /* Pushes the footer down */
+    text-align: center;
+    margin-top: 50px; /* Adjust top margin to move logo up */
+}
+
+.large-logo {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+    margin-top: 50px; /* Adjust this value to move the logo down */
+}
+
+.class-title {
+    margin-top: 10px;
+    font-size: 36px; /* Adjust font size as needed */
+    color: #050607; /* Adjust color if needed */
+    margin-bottom: 50px; /* Space between title and footer */
+}
+
+/* Right side styles */
+.right-side {
+    flex: 1; /* Takes up 50% of the width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Footer styles */
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: -20px; /* Move the footer image down */
+    left: 0;
+    text-align: left; /* Align footer image to the left */
+}
+
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: -65px; /* Adjust this value to move the footer image further down */
+    left: 0;
+    text-align: left; /* Align footer image to the left */
+}
+
+.footer-image {
+    width: 109%;
+    height: auto;
+    margin-left: -20px; /* Adjust to move the footer image to the left */
+}
+
+/* Sign-In container styles */
+.signin-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.form-container {
+    position: relative;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+select,
+input {
+    width: calc(100% - 22px); /* Adjust for padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.password-container {
+    position: relative;
+}
+
+input[type="password"] {
+    padding-right: 30px; /* Space for the eye icon */
+}
+
+.password-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, rgb(39, 213, 146), rgb(15, 233, 99), rgb(30, 171, 145), rgba(42, 134, 176, 0.688));
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+button:hover {
+    background-color: #3f6e6e;
+}
+
+.separator {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.separator span {
+    background-color: white;
+    padding: 0 10px;
+    color: #888;
+}
+
+#google-signin {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.toggle-auth {
+    margin-top: 20px;
+}
+
+.toggle-auth p {
+    font-size: 14px;
+}
+
+.toggle-auth a {
+    color: #3cbe43;
+    text-decoration: none;
+}
+
+.toggle-auth a:hover {
+    text-decoration: underline;
+}

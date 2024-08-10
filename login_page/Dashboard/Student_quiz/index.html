@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .options, .matching-answers {
+            margin-top: 10px;
+        }
+        .options input, .matching-answers input {
+            margin-right: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Assignment</h1>
+        <form id="assignment-form">
+            <!-- Multiple Choice Questions -->
+            <div class="question">
+                <label>1. What is the capital of France?</label>
+                <div class="options">
+                    <input type="radio" name="q1" value="0"> Berlin<br>
+                    <input type="radio" name="q1" value="0"> Madrid<br>
+                    <input type="radio" name="q1" value="1"> Paris<br>
+                    <input type="radio" name="q1" value="0"> Rome
+                </div>
+            </div>
+
+            <div class="question">
+                <label>2. What is the chemical symbol for gold?</label>
+                <div class="options">
+                    <input type="radio" name="q2" value="0"> Ag<br>
+                    <input type="radio" name="q2" value="1"> Au<br>
+                    <input type="radio" name="q2" value="0"> Pb<br>
+                    <input type="radio" name="q2" value="0"> Fe
+                </div>
+            </div>
+
+            <!-- Fill-in-the-Blanks -->
+            <div class="question">
+                <label>3. The largest ocean on Earth is the _________ Ocean.</label>
+                <input type="text" name="q3" placeholder="Enter your answer">
+            </div>
+
+            <div class="question">
+                <label>4. The process by which plants make their own food is called ________.</label>
+                <input type="text" name="q4" placeholder="Enter your answer">
+            </div>
+
+            <!-- Matching Questions -->
+            <div class="question">
+                <label>5. Match the following programming languages with their primary use:</label>
+                <div class="matching-answers">
+                    <label>1. Python - </label>
+                    <input type="text" name="m1" placeholder="Answer"><br>
+                    <label>2. HTML - </label>
+                    <input type="text" name="m2" placeholder="Answer"><br>
+                    <label>3. JavaScript - </label>
+                    <input type="text" name="m3" placeholder="Answer"><br>
+                    <label>4. SQL - </label>
+                    <input type="text" name="m4" placeholder="Answer">
+                </div>
+            </div>
+
+            <!-- Additional Multiple Choice Questions -->
+            <div class="question">
+                <label>6. Who wrote "To Kill a Mockingbird"?</label>
+                <div class="options">
+                    <input type="radio" name="q6" value="0"> Mark Twain<br>
+                    <input type="radio" name="q6" value="1"> Harper Lee<br>
+                    <input type="radio" name="q6" value="0"> J.K. Rowling<br>
+                    <input type="radio" name="q6" value="0"> Ernest Hemingway
+                </div>
+            </div>
+
+            <div class="question">
+                <label>7. Which planet is known as the Red Planet?</label>
+                <div class="options">
+                    <input type="radio" name="q7" value="1"> Mars<br>
+                    <input type="radio" name="q7" value="0"> Venus<br>
+                    <input type="radio" name="q7" value="0"> Jupiter<br>
+                    <input type="radio" name="q7" value="0"> Saturn
+                </div>
+            </div>
+
+            <!-- Additional Fill-in-the-Blanks -->
+            <div class="question">
+                <label>8. The capital of Japan is ________.</label>
+                <input type="text" name="q8" placeholder="Enter your answer">
+            </div>
+
+            <div class="question">
+                <label>9. The boiling point of water is ________ degrees Celsius.</label>
+                <input type="text" name="q9" placeholder="Enter your answer">
+            </div>
+
+            <!-- Additional Matching Questions -->
+            <div class="question">
+                <label>10. Match the following countries with their capitals:</label>
+                <div class="matching-answers">
+                    <label>1. Germany - </label>
+                    <input type="text" name="m5" placeholder="Answer"><br>
+                    <label>2. Italy - </label>
+                    <input type="text" name="m6" placeholder="Answer"><br>
+                    <label>3. Spain - </label>
+                    <input type="text" name="m7" placeholder="Answer"><br>
+                    <label>4. Portugal - </label>
+                    <input type="text" name="m8" placeholder="Answer">
+                </div>
+            </div>
+
+            <button type="button" class="btn" onclick="calculateMarks()">Submit</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateMarks() {
+            let score = 0;
+
+            // Check MCQs
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            if (q1 && q1.value === "1") {
+                score += 1;
+            }
+
+            let q2 = document.querySelector('input[name="q2"]:checked');
+            if (q2 && q2.value === "1") {
+                score += 1;
+            }
+
+            let q6 = document.querySelector('input[name="q6"]:checked');
+            if (q6 && q6.value === "1") {
+                score += 1;
+            }
+
+            let q7 = document.querySelector('input[name="q7"]:checked');
+            if (q7 && q7.value === "1") {
+                score += 1;
+            }
+
+            // Check Fill-in-the-Blanks
+            let q3 = document.querySelector('input[name="q3"]').value.trim().toLowerCase();
+            if (q3 === "pacific") score += 1;
+
+            let q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
+            if (q4 === "photosynthesis") score += 1;
+
+            let q8 = document.querySelector('input[name="q8"]').value.trim().toLowerCase();
+            if (q8 === "tokyo") score += 1;
+
+            let q9 = document.querySelector('input[name="q9"]').value.trim();
+            if (q9 === "100") score += 1;
+
+            // Check Matching Questions
+            let m1 = document.querySelector('input[name="m1"]').value.trim().toLowerCase();
+            let m2 = document.querySelector('input[name="m2"]').value.trim().toLowerCase();
+            let m3 = document.querySelector('input[name="m3"]').value.trim().toLowerCase();
+            let m4 = document.querySelector('input[name="m4"]').value.trim().toLowerCase();
+            let m5 = document.querySelector('input[name="m5"]').value.trim().toLowerCase();
+            let m6 = document.querySelector('input[name="m6"]').value.trim().toLowerCase();
+            let m7 = document.querySelector('input[name="m7"]').value.trim().toLowerCase();
+            let m8 = document.querySelector('input[name="m8"]').value.trim().toLowerCase();
+
+            if (m1 === "programming") score += 1;
+            if (m2 === "markup") score += 1;
+            if (m3 === "scripting") score += 1;
+            if (m4 === "database") score += 1;
+
+            if (m5 === "berlin") score += 1;
+            if (m6 === "rome") score += 1;
+            if (m7 === "madrid") score += 1;
+            if (m8 === "lisbon") score += 1;
+
+            // Display the result
+            document.getElementById('result').textContent = `You scored ${score} out of 10.`;
+        }
+    </script>
+</body>
+</html>

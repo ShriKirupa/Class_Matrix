@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classcraft-Inspired Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function openModal() {
+        document.getElementById('roleModal').style.display = 'block';
+    }
+    
+    function closeModal() {
+        document.getElementById('roleModal').style.display = 'none';
+    }
+    
+    function selectRole(role) {
+        if (role.toLowerCase() === 'student') {
+            window.location.href = 'Student_quiz/index.html'; // Update with the correct URL
+        } else if (role.toLowerCase() === 'teacher') {
+            window.location.href = 'Game_page/public/index.html'; // Update with the correct URL
+        } else {
+            alert("Invalid role selected.");
+        }
+    }
+    
+    </script>
+    
+</head>
+<body>
+    <div class="sidebar">
+        <h2>CLASS MATRIX</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="schedule.html">Schedules</a></li> <!-- Updated link -->
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+        
+    </div>
+
+    <div class="main-content">
+        <div class="top-bar">
+            <input type="text" placeholder="ENTER CODE" required/>
+            <button onclick="location.href='class.html'">Join Class+</button>
+            <button class="role-selection-button" onclick="selectRole()">Select Role</button>
+        </div>
+
+        <div class="content-area">
+            <h1>Dashboard</h1>
+            <div class="cards">
+                <div class="card">
+                    <img src="avatar1.png" alt="Avatar 1">
+                    <h3>Rocky</h3>
+                </div>
+                <div class="card">
+                    <img src="avatar2.png" alt="Avatar 2">
+                    <h3>Blue</h3>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+            <!-- The Modal -->
+             <!-- The Modal -->
+<div id="roleModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Select Your Role</h2>
+        </div>
+        <div class="modal-body">
+            <button class="btn" onclick="selectRole('student')">Student</button>
+            <button class="btn" onclick="selectRole('teacher')">Teacher</button>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

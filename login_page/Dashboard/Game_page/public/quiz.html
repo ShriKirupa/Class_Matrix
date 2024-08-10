@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <h1>Create a Quiz</h1>
+    <div id="quiz-container">
+        <div class="quiz-question">
+            <input type="text" placeholder="Enter your question">
+            <div class="quiz-options">
+                <input type="text" placeholder="Option 1">
+                <input type="text" placeholder="Option 2">
+            </div>
+            <button onclick="addQuizOption(this)">+ Add Option</button>
+        </div>
+    </div>
+    <button onclick="addQuizQuestion()">+ Add Another Question</button>
+    <button onclick="finalize('quiz')">Finalize</button>
+    <button onclick="preview()">Preview</button>
+    <button onclick="window.history.back()">Back</button>
+
+    <script src="scripts/quiz.js"></script>
+</body>
+</html>

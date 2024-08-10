@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match</title>
+    <link rel="stylesheet" href="styles\main.css">
+</head>
+<body>
+    <h1>Match the Items</h1>
+    <div id="match-container">
+        <div>
+            <label>Item:</label>
+            <input type="text" placeholder="Text or Image URL">
+            <input type="file" accept="image/*" onchange="uploadFile(this)">
+            <input type="text" placeholder="Matching Text or Image URL">
+            <input type="file" accept="image/*" onchange="uploadFile(this)">
+        </div>
+    </div>
+    <button onclick="addMatchItem()">+ Add Another Pair</button>
+    <button onclick="finalize('match')">Finalize</button>
+    <button onclick="preview()">Preview</button>
+    <button onclick="window.history.back()">Back</button>
+
+    <script src="scripts/match.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASS MATRIX</title>
+    <link rel="icon" href="LOGO MATRIX-Photoroom.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="split-container">
+        <!-- Left side: Logo and Title -->
+        <div class="left-side">
+            <div class="logo-container">
+                <img src="LOGO MATRIX-Photoroom.png" alt="Logo" class="large-logo">
+                <h1 class="class-title">Class Matrix</h1>
+            </div>
+            <footer class="footer">
+                <img src="BACKGROUND_1_-removebg-preview (1).png" alt="Footer Image" class="footer-image">
+            </footer>
+        </div>
+        
+        <!-- Right side: Sign-In Container -->
+        <div class="right-side">
+            <div class="signin-container">
+                <h1 id="page-title">Sign In</h1>
+                <div class="form-container">
+                    <form id="auth-form">
+                        <div id="role-container">
+                            <label for="user-type">Select your role:</label>
+                            <select id="user-type" name="user-type" required>
+                                <option value="" disabled selected>Select your role</option>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                            </select>
+                        </div>
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        <div class="password-container">
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                            <span id="password-icon" class="password-icon">👁️</span>
+                        </div>
+                        <button type="submit" id="auth-button">Sign In</button>
+                    </form>
+                    <div class="separator">
+                        <span>or</span>
+                    </div>
+                    <div id="google-signin"></div>
+                    <div class="toggle-auth">
+                        <p id="toggle-link"><a href="#" id="toggle-auth-link">Log In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

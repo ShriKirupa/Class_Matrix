@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="signin-container">
+            <h1 id="page-title">Log In</h1>
+            <div class="form-container">
+                <form id="auth-form">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <span id="password-icon" class="password-icon">👁️</span>
+                    </div>
+                    <button type="submit" id="auth-button">Log In</button>
+                    <div class="forgot-password">
+                        <a href="#">Forgot/Reset Password</a>
+                    </div>
+                </form>
+                <div class="separator">
+                    <span>or</span>
+                </div>
+                <div id="google-signin"></div>
+                <div class="toggle-auth">
+                    <p id="toggle-link">Need to Sign In? <a href="#" id="toggle-auth-link">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
