@@ -1,0 +1,82 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url(images/bbg.png);
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed during scroll */
+    margin: 0;
+    padding: 0;
+    color: #3cc;
+    
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: black;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.section {
+    margin: 30px 0;
+}
+
+h2 {
+    font-size: 2em;
+    color: black;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.reward-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.reward-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.reward-item:hover {
+    transform: scale(1.05);
+}
+
+.reward-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.reward-info {
+    margin-top: 10px;
+}
+
+.unlock-btn {
+    background-color: #f39c12;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.unlock-btn:hover {
+    background-color: #e67e22;
+}

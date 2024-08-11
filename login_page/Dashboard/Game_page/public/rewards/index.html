@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reward System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reward System</h1>
+        
+        <!-- Badges Section -->
+        <div class="section">
+            <h2>Badges</h2>
+            <div class="reward-grid">
+                <div class="reward-item">
+                    <img src="images/star.png" alt="Star Badge" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Star Badge</h3>
+                        <p>Earn 100 points to unlock this badge.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Star Badge')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/trophy.png" alt="Trophy Badge" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Trophy Badge</h3>
+                        <p>Earn 200 points to unlock this badge.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Trophy Badge')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/medal.png" alt="Medal Badge" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Medal Badge</h3>
+                        <p>Earn 300 points to unlock this badge.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Medal Badge')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/ribbon.png" alt="Ribbon Badge" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Ribbon Badge</h3>
+                        <p>Earn 400 points to unlock this badge.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Ribbon Badge')">Unlock</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <!-- Behavioral Rewards Section -->
+        <div class="section">
+            <h2>Behavioral Rewards</h2>
+            <div class="reward-grid">
+                <div class="reward-item">
+                    <img src="images/early.png" alt="Early Submission" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Early Submission</h3>
+                        <p>Submit assignments before the due date.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Early Submission')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/teamwork.png" alt="Teamwork" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Teamwork</h3>
+                        <p>Work effectively in group projects.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Teamwork')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/creativity.png" alt="Creativity" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Creativity</h3>
+                        <p>Show exceptional creativity in assignments.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Creativity')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/punctuality.png" alt="Punctuality" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Punctuality</h3>
+                        <p>Consistently meet deadlines.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Punctuality')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/helpful.png" alt="Helpful" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Helpful</h3>
+                        <p>Assist classmates in their learning.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Helpful')">Unlock</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Power-Ups Section -->
+        <div class="section">
+            <h2>Power-Ups</h2>
+            <div class="reward-grid">
+                <div class="reward-item">
+                    <img src="images/double_points.png" alt="Double Points" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Double Points</h3>
+                        <p>Earn double points for a limited time.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Double Points')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/early_life.png" alt="Extra Life" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Extra Life</h3>
+                        <p>Get an additional chance in challenges.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Extra Life')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/skip.png" alt="Skip Question" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Skip Question</h3>
+                        <p>Skip a challenging question.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Skip Question')">Unlock</button>
+                    </div>
+                </div>
+                <div class="reward-item">
+                    <img src="images/bonus_time.png" alt="Bonus Time" class="reward-icon">
+                    <div class="reward-info">
+                        <h3>Bonus Time</h3>
+                        <p>Get extra time on quizzes.</p>
+                        <button class="unlock-btn" onclick="unlockReward('Bonus Time')">Unlock</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
