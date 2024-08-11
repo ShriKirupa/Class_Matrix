@@ -32,7 +32,7 @@ Welcome to our GCR-like application, a gamified educational platform inspired by
 We wanted to create a platform that merges the functionality of Google Classroom with the excitement of Classcraft, providing a balanced blend of education and entertainment. Our goal was to build a tool that not only supports academic growth but also fosters a love for learning through gamification.
 
 ## 👥 Team CAPSLOCK
-- **Ragul Soumiya NarayananV**
+- **Ragul Sowmiya Narayanan**
 - **Sri kirupa**
 - **Suranjana**
 - **TharunaSri**
