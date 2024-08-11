@@ -3,223 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Assignment</title>
+    <title>Class Matrix</title>
+    <link rel="icon" href="LOGO MATRIX-Photoroom.png">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-image: url('images/js.jpg'); /* Set the background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+        #quiz-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 100px;
         }
-        h1 {
-            text-align: center;
-        }
-        .question {
+        #question {
+            font-size: 24px;
             margin-bottom: 20px;
         }
-        .question label {
+        .option {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .options, .matching-answers {
-            margin-top: 10px;
-        }
-        .options input, .matching-answers input {
-            margin-right: 10px;
-        }
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007bff;
+            background-color: #4CAF50;
             color: white;
-            font-size: 16px;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 5px;
+            width: 80%;
             cursor: pointer;
-            margin-top: 20px;
+            border: none;
+            transition: background-color 0.3s;
         }
-        .btn:hover {
-            background-color: #0056b3;
+        .option:hover {
+            background-color: #45a049;
         }
-        .result {
-            margin-top: 20px;
-            font-weight: bold;
+        #player-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .player {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        #avatars {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px; /* Reduce padding to decrease height */
+    background: rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+    height: 150px; /* Optional: Set a specific height */
+}
+
+        .avatar {
+            width: 100px;
+            text-align: center;
+            color: white;
+        }
+        .avatar img {
+            width: 80px;
+            border-radius: 50%;
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            z-index: 10;
+        }
+        #popup h2 {
+            margin-bottom: 20px;
+        }
+        #close-popup {
+            padding: 10px 20px;
+            background-color: #1c8e1c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Student Assignment</h1>
-        <form id="assignment-form">
-            <!-- Multiple Choice Questions -->
-            <div class="question">
-                <label>1. What is the capital of France?</label>
-                <div class="options">
-                    <input type="radio" name="q1" value="0"> Berlin<br>
-                    <input type="radio" name="q1" value="0"> Madrid<br>
-                    <input type="radio" name="q1" value="1"> Paris<br>
-                    <input type="radio" name="q1" value="0"> Rome
-                </div>
+
+    <div id="quiz-container">
+        <div id="player-info">
+            <div class="player">
+                <h3>Talia Skydancer</h3>
+                <div id="score1">Score: 0</div>
             </div>
-
-            <div class="question">
-                <label>2. What is the chemical symbol for gold?</label>
-                <div class="options">
-                    <input type="radio" name="q2" value="0"> Ag<br>
-                    <input type="radio" name="q2" value="1"> Au<br>
-                    <input type="radio" name="q2" value="0"> Pb<br>
-                    <input type="radio" name="q2" value="0"> Fe
-                </div>
+            <div class="player">
+                <h3>Lucian Darkwood</h3>
+                <div id="score2">Score: 0</div>
             </div>
+        </div>
 
-            <!-- Fill-in-the-Blanks -->
-            <div class="question">
-                <label>3. The largest ocean on Earth is the _________ Ocean.</label>
-                <input type="text" name="q3" placeholder="Enter your answer">
-            </div>
+        <h2 id="question">Loading question...</h2>
+        <div id="options">
+           
+        </div>
+    </div>
 
-            <div class="question">
-                <label>4. The process by which plants make their own food is called ________.</label>
-                <input type="text" name="q4" placeholder="Enter your answer">
-            </div>
+    <!-- Popup for final score -->
+    <div id="popup">
+        <h2>Final Scores</h2>
+        <p id="final-score"></p>
+        <button id="close-popup" onclick="closePopup()">Close</button>
+    </div>
 
-            <!-- Matching Questions -->
-            <div class="question">
-                <label>5. Match the following programming languages with their primary use:</label>
-                <div class="matching-answers">
-                    <label>1. Python - </label>
-                    <input type="text" name="m1" placeholder="Answer"><br>
-                    <label>2. HTML - </label>
-                    <input type="text" name="m2" placeholder="Answer"><br>
-                    <label>3. JavaScript - </label>
-                    <input type="text" name="m3" placeholder="Answer"><br>
-                    <label>4. SQL - </label>
-                    <input type="text" name="m4" placeholder="Answer">
-                </div>
-            </div>
-
-            <!-- Additional Multiple Choice Questions -->
-            <div class="question">
-                <label>6. Who wrote "To Kill a Mockingbird"?</label>
-                <div class="options">
-                    <input type="radio" name="q6" value="0"> Mark Twain<br>
-                    <input type="radio" name="q6" value="1"> Harper Lee<br>
-                    <input type="radio" name="q6" value="0"> J.K. Rowling<br>
-                    <input type="radio" name="q6" value="0"> Ernest Hemingway
-                </div>
-            </div>
-
-            <div class="question">
-                <label>7. Which planet is known as the Red Planet?</label>
-                <div class="options">
-                    <input type="radio" name="q7" value="1"> Mars<br>
-                    <input type="radio" name="q7" value="0"> Venus<br>
-                    <input type="radio" name="q7" value="0"> Jupiter<br>
-                    <input type="radio" name="q7" value="0"> Saturn
-                </div>
-            </div>
-
-            <!-- Additional Fill-in-the-Blanks -->
-            <div class="question">
-                <label>8. The capital of Japan is ________.</label>
-                <input type="text" name="q8" placeholder="Enter your answer">
-            </div>
-
-            <div class="question">
-                <label>9. The boiling point of water is ________ degrees Celsius.</label>
-                <input type="text" name="q9" placeholder="Enter your answer">
-            </div>
-
-            <!-- Additional Matching Questions -->
-            <div class="question">
-                <label>10. Match the following countries with their capitals:</label>
-                <div class="matching-answers">
-                    <label>1. Germany - </label>
-                    <input type="text" name="m5" placeholder="Answer"><br>
-                    <label>2. Italy - </label>
-                    <input type="text" name="m6" placeholder="Answer"><br>
-                    <label>3. Spain - </label>
-                    <input type="text" name="m7" placeholder="Answer"><br>
-                    <label>4. Portugal - </label>
-                    <input type="text" name="m8" placeholder="Answer">
-                </div>
-            </div>
-
-            <button type="button" class="btn" onclick="calculateMarks()">Submit</button>
-        </form>
-
-        <div class="result" id="result"></div>
+    <!-- Avatars at the bottom -->
+    <div id="avatars">
+        <div class="avatar">
+            <img src="images/pixlr-image-generator-49ec7bae-b103-4c4f-bb1c-0148c26b6d65.png" alt="Talia Avatar">
+            <h4>Talia Skydancer</h4>
+        </div>
+        <div class="avatar">
+            <img src="images/pixlr-image-generator-f6a24e00-ddf1-4bf3-a639-a45a391a16f6.png" alt="Lucian Avatar">
+            <h4>Lucian Darkwood</h4>
+        </div>
     </div>
 
     <script>
-        function calculateMarks() {
-            let score = 0;
-
-            // Check MCQs
-            let q1 = document.querySelector('input[name="q1"]:checked');
-            if (q1 && q1.value === "1") {
-                score += 1;
+        const questions = [
+            {
+                question: "During photosynthesis, plants produce oxygen as a by-product. What part of the photosynthesis process is responsible for this oxygen production?",
+                options: ["The Calvin cycle", "The Krebs cycle", "The light-dependent reactions", "The electron transport chain"],
+                answer: "The light-dependent reactions"
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Earth", "Mars", "Jupiter", "Venus"],
+                answer: "Mars"
+            },
+            {
+                question: "Who wrote 'To Kill a Mockingbird'?",
+                options: ["Harper Lee", "Mark Twain", "F. Scott Fitzgerald", "Ernest Hemingway"],
+                answer: "Harper Lee"
+            },
+            {
+                question: "What is the capital of Australia?",
+                options: ["Sydney", "Melbourne", "Canberra", "Perth"],
+                answer: "Canberra"
+            },
+            {
+                question: "Which element has the chemical symbol 'O'?",
+                options: ["Oxygen", "Gold", "Osmium", "Oganesson"],
+                answer: "Oxygen"
             }
+        ];
 
-            let q2 = document.querySelector('input[name="q2"]:checked');
-            if (q2 && q2.value === "1") {
-                score += 1;
-            }
+        let currentQuestionIndex = 0;
+        let score1 = 0;
+        let score2 = 0;
+        let currentPlayer = 1;
 
-            let q6 = document.querySelector('input[name="q6"]:checked');
-            if (q6 && q6.value === "1") {
-                score += 1;
-            }
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = currentQuestion.question;
+            const optionsDiv = document.getElementById("options");
+            optionsDiv.innerHTML = ""; // Clear previous options
 
-            let q7 = document.querySelector('input[name="q7"]:checked');
-            if (q7 && q7.value === "1") {
-                score += 1;
-            }
-
-            // Check Fill-in-the-Blanks
-            let q3 = document.querySelector('input[name="q3"]').value.trim().toLowerCase();
-            if (q3 === "pacific") score += 1;
-
-            let q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
-            if (q4 === "photosynthesis") score += 1;
-
-            let q8 = document.querySelector('input[name="q8"]').value.trim().toLowerCase();
-            if (q8 === "tokyo") score += 1;
-
-            let q9 = document.querySelector('input[name="q9"]').value.trim();
-            if (q9 === "100") score += 1;
-
-            // Check Matching Questions
-            let m1 = document.querySelector('input[name="m1"]').value.trim().toLowerCase();
-            let m2 = document.querySelector('input[name="m2"]').value.trim().toLowerCase();
-            let m3 = document.querySelector('input[name="m3"]').value.trim().toLowerCase();
-            let m4 = document.querySelector('input[name="m4"]').value.trim().toLowerCase();
-            let m5 = document.querySelector('input[name="m5"]').value.trim().toLowerCase();
-            let m6 = document.querySelector('input[name="m6"]').value.trim().toLowerCase();
-            let m7 = document.querySelector('input[name="m7"]').value.trim().toLowerCase();
-            let m8 = document.querySelector('input[name="m8"]').value.trim().toLowerCase();
-
-            if (m1 === "programming") score += 1;
-            if (m2 === "markup") score += 1;
-            if (m3 === "scripting") score += 1;
-            if (m4 === "database") score += 1;
-
-            if (m5 === "berlin") score += 1;
-            if (m6 === "rome") score += 1;
-            if (m7 === "madrid") score += 1;
-            if (m8 === "lisbon") score += 1;
-
-            // Display the result
-            document.getElementById('result').textContent = `You scored ${score} out of 10.`;
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.className = "option";
+                button.onclick = () => handleAnswer(option, currentQuestion.answer);
+                optionsDiv.appendChild(button);
+            });
         }
+
+        function handleAnswer(selectedOption, correctAnswer) {
+            if (selectedOption === correctAnswer) {
+                if (currentPlayer === 1) {
+                    score1++;
+                    document.getElementById("score1").textContent = "Score: " + score1;
+                } else {
+                    score2++;
+                    document.getElementById("score2").textContent = "Score: " + score2;
+                }
+            }
+            currentPlayer = currentPlayer === 1 ? 2 : 1; // Switch player
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showPopup();
+            }
+        }
+
+        function showPopup() {
+            const finalScoreText = "Talia Skydancer: " + score1 + "\nLucian Darkwood: " + score2;
+            document.getElementById("final-score").textContent = finalScoreText;
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            currentQuestionIndex = 0;
+            score1 = 0;
+            score2 = 0;
+            currentPlayer = 1;
+            document.getElementById("score1").textContent = "Score: 0";
+            document.getElementById("score2").textContent = "Score: 0";
+            loadQuestion(); // Restart the quiz
+        }
+
+        // Initial load
+        loadQuestion();
     </script>
+
 </body>
 </html>
