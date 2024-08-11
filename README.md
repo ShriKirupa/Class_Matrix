@@ -1,10 +1,10 @@
-# 🎮 GCR-like Application
+# 🎮 Class Matrix , GCR-like Application
 
 **Developed by Team CAPSLOCK during the 24-hour Hackmageddon at Rajalakshmi Engineering College**
 
 ## 🚀 Overview
 
-Welcome to our GCR-like application, a gamified educational platform inspired by Google Classroom and Classcraft. Our app enhances traditional classroom experiences by integrating game-based learning and interactive tools, designed to make education more engaging and rewarding.
+Welcome to our GCR-like application, a gamified educational platform inspired by Google Classroom. Our app enhances traditional classroom experiences by integrating game-based learning and interactive tools, designed to make education more engaging and rewarding.
 
 ## 🛠️ Features
 
