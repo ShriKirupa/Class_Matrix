@@ -1,4 +1,4 @@
-# 🎮 GCR-like Classcraft Application
+# 🎮 GCR-like Application
 
 **Developed by Team CAPSLOCK during the 24-hour Hackmageddon at Rajalakshmi Engineering College**
 
